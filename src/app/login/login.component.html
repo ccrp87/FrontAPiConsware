@@ -1,0 +1,21 @@
+
+<br>
+<div class="card card-center" style="width: 18rem;">
+  <div class="card-body">
+    <h1 class="card-title">Bienvenido</h1>
+
+    <form [formGroup]="formLogin">
+
+        <div class="form-group">
+          <label for="stock">Correo</label>
+          <input  matInput formControlName="correo" class="form-control" id="correo" placeholder="Correo">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="stock">Clave</label>
+          <input  type="password" formControlName="clave" class="form-control" id="clave" placeholder="Contaseña">
+        </div>
+      <button mat-button  mat-raised-button class="full-width" [disabled]="!formLogin.valid" (click)="login()" color="primary" cdkFocusInitial>Entrar</button>
+    </form>
+  </div>
+</div>

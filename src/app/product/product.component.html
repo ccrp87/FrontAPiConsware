@@ -1,0 +1,36 @@
+
+<br><br>
+<!-- Button trigger modal -->
+<button mat-button mat-raised-button color="primary" (click)="openFormNewProduct()" >
+  Nuevo producto
+  </button><br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <td><input type="text" class="form-control" #key (keyup)="searchProduct(key.value)" placeholder="Buscar por nombre" name="" id=""></td>
+      <td colspan="5"></td>
+    </tr>
+    <tr>
+      <th>Nombre</th>
+      <th>Valor</th>
+      <th>Stock</th>
+      <th>Iva</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let product of products">
+     <td>{{product.nombre}}</td>
+     <td>{{product.valor}}</td>
+     <td>{{product.stock}}</td>
+     <td>{{product.iva}}</td>
+     <td>
+       <button mat-button mat-raised-button (click)="openFormEditProduct(product.id)">Ver</button>
+      <button mat-button mat-raised-button (click)="deleteProduct(product.id)" color="warn">Eliminar</button>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="6" *ngIf="!products.length">No se encontraron registros</td>
+   </tr>
+  </tbody>
+</table>

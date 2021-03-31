@@ -1,0 +1,40 @@
+<br><br>
+<!-- Button trigger modal -->
+
+<button mat-button mat-raised-button color="primary" (click)="openFormNewClient()" >
+  Nuevo cliente
+  </button><br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <td><input type="text" class="form-control" #key (keyup)="searchClient(key.value)" placeholder="Buscar por nombre" name="" id=""></td>
+      <td colspan="5"></td>
+    </tr>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Direccion</th>
+      <th>Telefono</th>
+      <th>Correo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr *ngFor="let client of clients">
+     <td>{{client.nombre}}</td>
+     <td>{{client.apellido}}</td>
+     <td>{{client.direccion}}</td>
+     <td>{{client.telefono}}</td>
+     <td>{{client.correo}}</td>
+     <td>
+       <button mat-button mat-raised-button (click)="openFormEditClient(client.id)">Ver</button>
+      <button mat-button mat-raised-button (click)="deleteClient(client.id)" color="warn">Eliminar</button>
+    </td>
+   </tr>
+   <tr>
+    <td colspan="6" *ngIf="!clients.length">No se encontraron registros</td>
+   </tr>
+  </tbody>
+</table>
+
+
